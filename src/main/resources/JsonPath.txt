@@ -1,0 +1,140 @@
+->POST http://localhost:8080/admin/addUser
+
+request:
+{
+	"name": "Georgescu Alexandru",
+	"password": "user1",
+	"grade": "titular"
+}
+
+response:
+{
+    "userId": 6,
+    "message": "Add new user with success!"
+}
+
+->  GET http://localhost:8080/admin/getAllTeacher
+request: nothing
+
+response:
+[
+    {
+        "userId": 2,
+        "name": "Georgescu Alexandru",
+        "password": "user1",
+        "isAdmin": null,
+        "isTeacher": true,
+        "grade": null,
+        "courses": [],
+        "teacherWishes": []
+    },
+    {
+        "userId": 3,
+        "name": "Anghel Corina",
+        "password": "user2",
+        "isAdmin": null,
+        "isTeacher": true,
+        "grade": null,
+        "courses": [],
+        "teacherWishes": []
+    }
+]
+
+-> POST http://localhost:8080/admin/addCourse
+
+request:
+
+{
+	"name": "Matematica",
+	"coursesNumber": "1",
+	"courseHour": "2",
+	"laboratoriesNumber":"3",
+	"laboratoryHour": "2"
+}
+
+response:
+
+{
+    "courseId": 1,
+    "message": "Add new course with success!"
+}
+
+-> POST http://localhost:8080/admin/addClassrooms
+
+request:
+
+[
+{
+	"name": "C403",
+	"type": "lab"
+},
+{
+	"name": "C405",
+	"type": "lab"
+}
+]
+
+response:
+
+{
+    "classroomNumber": 2,
+    "message": "Add new Classrooms with Success!"
+}
+
+-> GET  http://localhost:8080/admin/getAllClassroom
+response:
+[
+    {
+        "classroomId": 1,
+        "name": "C401",
+        "type": "lab",
+        "isOccupiedByList": [],
+        "teacherWishes": []
+    },
+    {
+        "classroomId": 4,
+        "name": "C403",
+        "type": "lab",
+        "isOccupiedByList": [],
+        "teacherWishes": []
+    },
+    {
+        "classroomId": 5,
+        "name": "C405",
+        "type": "lab",
+        "isOccupiedByList": [],
+        "teacherWishes": []
+    }
+]
+
+-> POST http://localhost:8080/admin/getAllCourses
+
+[
+    {
+        "courseId": 1,
+        "name": "Matematica",
+        "coursesNumber": 1,
+        "courseHour": 2,
+        "laboratoriesNumber": 3,
+        "laboratoryHour": 2,
+        "teachers": [],
+        "teacherWishes": []
+    },
+    {
+        "courseId": 2,
+        "name": "Matematica",
+        "coursesNumber": 1,
+        "courseHour": 2,
+        "laboratoriesNumber": 3,
+        "laboratoryHour": 2,
+        "teachers": [],
+        "teacherWishes": []
+    }
+]
+
+-> GET http://localhost:8080/admin/callResolveConstraints
+
+{
+    "resolveWish": [],
+    "message": null
+}
